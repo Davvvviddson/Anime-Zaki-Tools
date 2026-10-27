@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Anime Zaki Tools — 68 Free Anime & Manga Tools</title>
+<meta name="description" content="Anime Zaki Tools: keyless anime & manga tools — random generators, finders, charts, music, manga utilities and a curated free-alternatives directory. Japanese ukiyo-e theme. No sign-up.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://api.jikan.moe">
+<link rel="preconnect" href="https://graphql.anilist.co">
+<link rel="preconnect" href="https://api.mangadex.org">
+<link rel="preconnect" href="https://kitsu.io">
+<link rel="preconnect" href="https://nekos.life">
+<link rel="preconnect" href="https://s4.anilist.co">
+<link rel="preconnect" href="https://cdn.myanimelist.net">
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@500;700;800&family=Zen+Kaku+Gothic+New:wght@400;500;700;900&display=swap" rel="stylesheet">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23d8452b'/%3E%3Ctext x='32' y='46' font-size='40' text-anchor='middle' fill='%23fff' font-family='serif'%3E技%3C/text%3E%3C/svg%3E">
+<link rel="stylesheet" href="styles.css">
+<script>try{var _a=localStorage.getItem('azt_acc');if(_a!=null){_a=JSON.parse(_a);if(_a&&_a!=='gold')document.documentElement.setAttribute('data-acc',_a)}var _c=localStorage.getItem('azt_card');if(_c!=null){_c=JSON.parse(_c);if(_c&&_c!=='paper')document.documentElement.setAttribute('data-card',_c)}var _d=localStorage.getItem('azt_dens');if(_d!=null){_d=JSON.parse(_d);if(_d&&_d!=='roomy')document.documentElement.setAttribute('data-dens',_d)}var _g=localStorage.getItem('azt_gtt');if(_g!=null){_g=JSON.parse(_g);if(_g&&/^#[0-9a-fA-F]{6}$/.test(_g))document.documentElement.style.setProperty('--glass-tint',_g)}var _ga=parseFloat(localStorage.getItem('azt_gamt')||'60');if(!isNaN(_ga)){var _gt=Math.max(0,Math.min(100,_ga))/100;document.documentElement.style.setProperty('--g-amount',_gt.toFixed(3))}var _cop=parseFloat(localStorage.getItem('azt_cop')||'0');if(!isNaN(_cop))document.documentElement.style.setProperty('--copn',(Math.max(0,Math.min(100,_cop))/100).toFixed(3));var _u=localStorage.getItem('azt_cur');if(_u){var _cu=null;try{_cu=JSON.parse(_u)}catch(e){}var _cx=_cu&&(_cu.anim&&_cu.anim.length>1?_cu.anim[0]:(_cu.img||_cu.raw));if(_cx){document.documentElement.setAttribute('data-cur','on');document.documentElement.style.setProperty('--cur','url("'+_cx+'") '+(_cu.hx|0)+' '+(_cu.hy|0)+', auto')}}}catch(e){}</script>
+</head>
+<body>
+<div id="wallpaper" aria-hidden="true"></div>
+<canvas id="petals"></canvas>
+
+<div class="page">
+
+  <!-- ============ TOP BAR ============ -->
+  <header class="topbar">
+    <div class="brand" id="brandHome" title="Home">
+      <div class="seal">技</div>
+      <div class="brand-text">
+        <b id="brandName">Anime Zaki Tools</b>
+        <small id="brandSub">アニメザキ道具 · 68 tools</small>
+      </div>
+    </div>
+
+    <div class="searchbox">
+      <span class="mag" data-ico="search"></span>
+      <input id="liveSearch" type="search" autocomplete="off" placeholder="Search 68 tools…" data-i18n-ph="searchPh">
+      <kbd>/</kbd>
+    </div>
+
+    <div class="spacer"></div>
+
+    <button class="pill" id="doctorBtn" title="Connection Doctor — API status">
+      <span class="dot ok" id="doctorDot"></span>
+      <span id="doctorTxt">Connection Doctor</span>
+    </button>
+    <button class="pill lang" id="langBtn" title="Japanese ⇄ English">日 / EN</button>
+    <button class="pill" id="accBtn" title="Theme color"><span class="bico" data-ico="palette"></span></button>
+    <button class="pill" id="paletteBtn" title="Command palette">⌘K</button>
+    <button class="pill" id="randomBtn" title="Open a random tool"><span class="bico" data-ico="dice"></span></button>
+  </header>
+
+  <!-- ============ HERO ============ -->
+  <section class="hero">
+    <div class="hero-jp">アニメの道具箱</div>
+    <h1>Anime Zaki Tools</h1>
+    <div class="brush"></div>
+    <p class="hero-sub" data-i18n="heroSub">68 working anime &amp; manga tools in one page — generators, finders, charts, music and manga utilities. Free, no key, no sign-up.</p>
+    <div class="hero-stats">
+      <span class="stat-chip">68 tools</span>
+      <span class="stat-chip" data-i18n="stFree">Free · keyless APIs</span>
+      <span class="stat-chip" data-i18n="stSign">No sign-up</span>
+      <span class="stat-chip" data-i18n="stLegal">Legal links only — no piracy</span>
+      <span class="stat-chip" data-i18n="stOne">Single page</span>
+    </div>
+    <div class="hero-cta">
+      <button class="btn primary" id="heroRandom"><span class="bico" data-ico="dice"></span><span data-i18n="randomTool">Random tool</span></button>
+      <button class="btn ghost" id="heroPalette"><span class="bico keycap">⌘K</span> <span data-i18n="openPalette">Command palette</span></button>
+      <button class="btn gold" id="heroWatch"><span class="bico" data-ico="star"></span><span data-i18n="myWatchlist">My watchlist</span></button>
+    </div>
+  </section>
+
+  <!-- ============ CATEGORY FILTERS ============ -->
+  <nav class="chips" id="chips"></nav>
+  <div class="grid-count" id="gridCount"></div>
+
+  <!-- ============ TOOL GRID ============ -->
+  <main class="grid" id="grid"></main>
+
+  <!-- ============ ABOUT / RULES ============ -->
+  <h2 class="section-title reveal">Built on your rules</h2>
+  <div class="section-title-jp reveal">四つの原則</div>
+  <section class="about">
+    <div class="about-card reveal"><div class="e" data-ico="scale"></div><h3 data-i18n="r1t">No piracy</h3><p data-i18n="r1d">Every media link points to official / legal sources — MAL, Crunchyroll, Viz, MANGA Plus, YouTube official channels, Spotify search.</p></div>
+    <div class="about-card reveal"><div class="e" data-ico="key"></div><h3 data-i18n="r2t">Free &amp; keyless</h3><p data-i18n="r2d">Powered by the Jikan API (unofficial MyAnimeList REST API) plus local generators. No API keys, no accounts, no tracking.</p></div>
+    <div class="about-card reveal"><div class="e" data-ico="check"></div><h3 data-i18n="r3t">Verified tools</h3><p data-i18n="r3d">Each tool does exactly what its card says — open the Info card on any tool to see what it does and where its data comes from.</p></div>
+    <div class="about-card reveal"><div class="e" data-ico="flower"></div><h3 data-i18n="r4t">Alive &amp; cool</h3><p data-i18n="r4d">Falling sakura, paper cards, hanko seals, a ⌘K command palette, live search, category filters and a Connection Doctor.</p></div>
+  </section>
+
+  <!-- ============ API CREDITS — every source we use, free & keyless ============ -->
+  <h2 class="section-title reveal" data-i18n="apiTitle">The free APIs behind these tools</h2>
+  <div class="section-title-jp reveal">利用している無料API</div>
+  <section class="api-cred reveal">
+    <p class="api-lead" data-i18n="apiLead">Every tool runs on these public APIs — all free, all keyless, no sign-up and no tracking. Click a card to open each API's own page.</p>
+    <div id="apiCred"></div>
+    <p class="api-foot" data-i18n="apiFoot">If a source is unreachable the Connection Doctor automatically switches to the fallback APIs below — the site keeps working without any key or server of ours.</p>
+  </section>
+
+  <!-- ===== LEGAL — Privacy Policy & Terms of Service ===== -->
+  <h2 class="section-title reveal" data-i18n="legalTitle">Privacy Policy &amp; Terms of Service</h2>
+  <div class="section-title-jp reveal">プライバシーポリシー＆利用規約</div>
+  <section class="legal-wrap reveal">
+    <details class="legal-card">
+      <summary><span data-ico="shield"></span><span data-i18n="ppTitle">Privacy Policy</span></summary>
+      <ul>
+        <li data-i18n="pp1">No accounts, no cookies, no analytics and no tracking — this site runs entirely in your browser.</li>
+        <li data-i18n="pp2">Your settings (language, effects, wallpaper, watchlist, recently opened tools) are saved only in your browser's local storage — they never leave your device and are deleted when you clear site data.</li>
+        <li data-i18n="pp3">Tools query free public APIs (Jikan/MyAnimeList, AniList, MangaDex, Kitsu and others) directly from your browser — those services may receive standard request data (your IP address and browser user agent) under their own privacy policies.</li>
+        <li data-i18n="pp4">Wallpaper and cover images load directly from official CDNs (AniList, Flickr/Openverse) — those hosts see normal image requests.</li>
+        <li data-i18n="pp5">External links open third-party websites with their own privacy practices — review them before use.</li>
+      </ul>
+    </details>
+    <details class="legal-card">
+      <summary><span data-ico="scale"></span><span data-i18n="tsTitle">Terms of Service</span></summary>
+      <ul>
+        <li data-i18n="ts1">This site is provided free "as is" with no warranty of any kind — use it at your own risk.</li>
+        <li data-i18n="ts2">Fan-made project, not affiliated with or endorsed by MyAnimeList, AniList, MangaDex, Kitsu or any studio.</li>
+        <li data-i18n="ts3">The Free Streaming directory only links to third-party sites — we host, upload, download and distribute nothing; respect your local laws.</li>
+        <li data-i18n="ts4">The original code, design, text and artwork of this site are protected — do not copy, scrape, mirror or rehost them without written permission.</li>
+        <li data-i18n="ts5">Using this site means you accept these terms, which may be updated at any time. Liability is limited to the maximum extent permitted by law.</li>
+      </ul>
+    </details>
+  </section>
+  <p class="legal-copy reveal" data-i18n="legalCopy">© 2026 Anime Zaki Tools — original design, code &amp; artwork · All rights reserved.</p>
+
+  <!-- ===== GUESTBOOK — rate, comment & suggest (stored locally) ===== -->
+  <h2 class="section-title reveal" data-i18n="gbTitle">Rate, Comment &amp; Suggest</h2>
+  <div class="section-title-jp reveal">評価＆コメント</div>
+  <section id="gbBox" class="gb-wrap reveal"></section>
+
+  <footer>
+    <b>Anime Zaki Tools</b> — fan-made aggregator, hand-built with canvas &amp; care.<br>
+    Data by <a href="https://jikan.moe" target="_blank" rel="noopener">Jikan API</a>, AniList, MangaDex, Kitsu &amp; more — full list above.<br>
+    <span data-i18n="footNote">Not affiliated with MyAnimeList / AniList / any studio. Music &amp; video tools open official sources only.</span>
+  </footer>
+</div>
+
+<div id="modalRoot"></div>
+<div id="paletteRoot"></div>
+<div class="toasts" id="toastRoot"></div>
+
+  <!-- ===== BACKGROUND CONTROLS — effects & wallpaper ===== -->
+  <div class="fx-dock" id="fxDock">
+    <div class="dock-row">
+      <button class="dock-btn" id="vfxBtn" type="button" aria-haspopup="true" aria-expanded="false"><span class="dico" data-ico="sparkles"></span><span data-i18n="fxLab">Effects</span></button>
+      <button class="dock-btn" id="wpBtn" type="button" aria-haspopup="true" aria-expanded="false"><span class="dico" data-ico="image"></span><span data-i18n="wpLab">Wallpaper</span></button>
+      <button class="dock-btn" id="curBtn" type="button" aria-haspopup="true" aria-expanded="false"><span class="dico" data-ico="cursor"></span><span data-i18n="curLab">Cursor</span></button>
+      <button class="dock-btn dock-btn--icon" id="wpEye" type="button" aria-label="Toggle wallpaper visibility"><span class="dico" data-ico="eye"></span></button>
+    </div>
+    <div class="dock-pop" id="vfxPop" hidden></div>
+    <div class="dock-pop" id="wpPop" hidden></div>
+    <div class="dock-pop dock-pop--cur" id="curPop" hidden></div>
+  </div>
+
+<script src="data.js"></script>
+<script src="app.js"></script>
+<script src="tools1.js"></script>
+<script src="tools2.js"></script>
+</body>
+</html>
